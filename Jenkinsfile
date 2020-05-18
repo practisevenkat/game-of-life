@@ -1,6 +1,6 @@
 //declarative pipeline
 pipeline{
-    agent {label 'MASTER'}
+    agent {label 'master'}
     stages {
         stage('Source'){
             steps {
