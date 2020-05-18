@@ -1,6 +1,7 @@
 //declarative pipeline
 pipeline{
     agent {label 'master'}
+    triggers { pollSCM('* * * * *') }
     stages {
         stage('clone and compile'){
             steps {
