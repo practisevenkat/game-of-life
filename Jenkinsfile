@@ -2,9 +2,11 @@
 pipeline{
     agent {label 'master'}
     stages {
-        stage('Source'){
+        stage('clone and compile'){
             steps {
-                git 'https://github.com/practisevenkat/game-of-life.git'
+                 git branch: 'declarative'
+                 url: git 'https://github.com/practisevenkat/game-of-life.git'
+                 sh 'mvn compile'
             }
         }
         stage('Package'){
