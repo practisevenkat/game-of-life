@@ -5,8 +5,8 @@ pipeline{
     stages {
         stage('clone and compile'){
             steps {
-                 git branch: 'declarative'
-                 url: git 'https://github.com/practisevenkat/game-of-life.git'
+                 git branch: 'declarative',
+                 url: 'https://github.com/practisevenkat/game-of-life.git'
                  sh 'mvn compile'
             }
         }
