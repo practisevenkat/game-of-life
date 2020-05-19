@@ -2,6 +2,9 @@
 pipeline{
     agent {label 'master'}
     triggers { upstream(upstreamProjects: 'gol-1', threshold: hudson.model.Result.SUCCESS) }
+    parameters {
+        string(name: 'BRANCH_FOR_BUILD',defaultValue: 'master', description: 'Enter the branch to be built')
+    }
     stages {
         stage('clone'){
             steps {
