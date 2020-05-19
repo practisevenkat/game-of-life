@@ -1,7 +1,7 @@
 //declarative pipeline
 pipeline{
     agent {label 'master'}
-    triggers { pollSCM upstream(upstreamProjects: 'gol-1', threshold: hudson.model.Result.SUCCESS) }
+    triggers { upstream(upstreamProjects: 'gol-1', threshold: hudson.model.Result.SUCCESS) }
     stages {
         stage('clone'){
             steps {
