@@ -1,13 +1,17 @@
 //declarative pipeline
 pipeline{
     agent {label 'master'}
-    triggers { pollSCM('* * * * *') }
+    triggers { pollSCM upstream(upstreamProjects: 'gol-1', threshold: hudson.model.Result.SUCCESS) }
     stages {
-        stage('clone and compile'){
+        stage('clone'){
             steps {
-                 git branch: 'declarative',
-                 url: 'https://github.com/practisevenkat/game-of-life.git'
-                 sh 'mvn compile'
+                 git url: 'https://github.com/practisevenkat/game-of-life.git', branch: 'declarative'
+            }
+        }
+        stage('compile')
+        {
+            steps{
+                    sh 'mvn compile'
             }
         }
         stage('Package'){
