@@ -2,12 +2,12 @@ trigger:
   - master
 
 pool:
-  - vmimage: 'ubuntu-latest'
+  vmimage: 'ubuntu-latest'
 
 stages:
   - stage: 'build'
     jobs: 
-     - job: 'building the code'
+     - job: 'build'
        steps: 
          - task: Maven@3
            inputs:
